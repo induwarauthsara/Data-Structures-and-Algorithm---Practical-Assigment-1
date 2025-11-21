@@ -2,7 +2,7 @@
 
 int main() {
 
-    int arr[] = {1,2,3,4,5,6,7};
+    int arr[] = {1,2,4,5,6,7};
 
     int number;
     printf("Enter number : ");
@@ -23,18 +23,20 @@ int main() {
         }
         else{
             pos = i;
-            new_arr[i] = number;
+            new_arr[pos] = number;
             break;
         }
     }
 
     // copy rest of array
-    for(int i=pos+1; i<arr_size+1; i++){
-        new_arr[i] = arr[i-1];
-    }
-    
-    // if it's last position, add it
-    new_arr[arr_size+1] = number;
+   if (pos != -1)
+   {
+        for(int i=pos+1; i<arr_size+1; i++){
+            new_arr[i] = arr[i-1];
+        }
+   }else{
+        new_arr[arr_size] = number;
+   }
 
     printf("---------------------\n");
     printf("New Array : ");
